@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: get Old
-      run: echo "old_mvn_var=mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout" >>  "$GITHUB_ENV"
+      run: mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout >>  $env.$old_mvn_var
     - name: diplay
       run : echo "${{ env.old_mvn_var }}" 
 
