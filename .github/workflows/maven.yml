@@ -29,8 +29,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: get Old
-      run: mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout >>  $env.$old_mvn_var
+      run: mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout >>   $env:$OLD_VERSION
     - name: diplay
-      run : echo "${{ env.old_mvn_var }}" 
+      run : echo "${{ env.OLD_VERSION }}" 
 
    
