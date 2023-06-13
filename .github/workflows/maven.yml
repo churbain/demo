@@ -36,12 +36,12 @@ jobs:
        import re
        old = "${{ env.OLD_VERSION }}"
        vals = re.split('[.-]+', old )
-        if vals[1] <99
-         majeur = vals[0]
-         mineur = vals[1] + 1
-        else 
-         majeur = vals[0] +1
-         mineur = 0
+       if vals[1] <99
+        majeur = vals[0]
+        mineur = vals[1] + 1
+       else 
+        majeur = vals[0] +1
+        mineur = 0
        new_vers = mineur + "." + majeur
        with open(os.environ['GITHUB_ENV'], 'a') as fh:
         print(f'NEW_VERSION={new_vers}', file=fh)
