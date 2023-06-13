@@ -33,6 +33,7 @@ jobs:
     - name: CalculNew version
       run: |
        import os
+       import re
        old = "${{ env.OLD_VERSION }}"
        vals = re.split('[.-]+', old )
        print(vals)
