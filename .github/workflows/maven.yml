@@ -39,7 +39,7 @@ jobs:
        if vals[1] <99:
         majeur = vals[0]
         mineur = vals[1] + 1
-       else 
+       else:
         majeur = vals[0] +1
         mineur = 0
        new_vers = mineur + "." + majeur
