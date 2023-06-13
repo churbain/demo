@@ -32,5 +32,10 @@ jobs:
       run: echo "OLD_VERSION=$( mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
     - name: diplay
       run : echo "${{ env.OLD_VERSION }}"
+    - name: CalculNew version
+      run: |
+       var test = "${{ env.OLD_VERSION }}"
+       print (test)
+      shell: python
 
    
