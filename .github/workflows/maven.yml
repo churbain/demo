@@ -31,6 +31,6 @@ jobs:
     - name: get Old
       run: echo "OLD_VERSION = $( mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
     - name: diplay
-      run : echo $OLD_VERSION
+      run : echo ${{ env.OLD_VERSION }}
 
    
