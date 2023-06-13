@@ -41,8 +41,8 @@ jobs:
         print(f'OLD_NO_SNAP="test_old_nope"', file=fh)
       shell: python
     - name: diplay
-        |
-      run : echo "${{ env.NEW_VERSION }}"
-            echo "${{ env.OLD_NO_SNAP }}"
+      run : |
+       echo "${{ env.NEW_VERSION }}"
+       echo "${{ env.OLD_NO_SNAP }}"
 
    
