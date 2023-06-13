@@ -35,6 +35,7 @@ jobs:
     - name: CalculNew version
       run: |
        test = "${{ env.OLD_VERSION }}"
+       mvn clean install
        print (test)
       shell: python
 
