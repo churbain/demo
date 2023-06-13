@@ -37,8 +37,8 @@ jobs:
        import os
        test = "${{ env.OLD_VERSION }}"
        with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-        print(f'{NEW_VERSION}={tesging_val}', file=fh)
-        print(f'{OLD_NO_SNAP}={test_old_nope}', file=fh)
+        print(f'NEW_VERSION="tesging_val"', file=fh)
+        print(f'OLD_NO_SNAP="test_old_nope"', file=fh)
       shell: python
     - name: diplay
         |
