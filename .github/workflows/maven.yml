@@ -36,7 +36,7 @@ jobs:
        import re
        old = "${{ env.OLD_VERSION }}"
        vals = re.split('[.-]+', old )
-       if vals[1] <99
+       if vals[1] <99:
         majeur = vals[0]
         mineur = vals[1] + 1
        else 
