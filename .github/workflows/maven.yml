@@ -42,7 +42,7 @@ jobs:
       shell: python
     - name: diplay
       run : |
-       echo "${{ env.NEW_VERSION }}"
-       echo "${{ env.OLD_NO_SNAP }}"
+       echo "${{ NEW_VERSION }}"
+       echo "${{ OLD_NO_SNAP }}"
 
    
