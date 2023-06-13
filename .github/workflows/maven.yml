@@ -34,7 +34,7 @@ jobs:
       run : echo "${{ env.OLD_VERSION }}"
     - name: CalculNew version
       run: |
-       var test = "${{ env.OLD_VERSION }}"
+       test = "${{ env.OLD_VERSION }}"
        print (test)
       shell: python
 
