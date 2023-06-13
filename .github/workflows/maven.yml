@@ -37,10 +37,10 @@ jobs:
        old = "${{ env.OLD_VERSION }}"
        vals = re.split('[.-]+', old )
        if int(vals[1]) <99:
-        majeur = int (vals[0])
-        mineur = int (vals[1]) + 1
+        majeur =  vals[0]
+        mineur = str(int (vals[1]) + 1)
        else:
-        majeur = int(vals[0]) +1
+        majeur = str (int(vals[0]) +1)
         mineur = 0
        new_vers = mineur + "." + majeur
        with open(os.environ['GITHUB_ENV'], 'a') as fh:
