@@ -8,7 +8,7 @@
 
 name: Java CI with Maven
 
-on: 
+on:
   workflow_dispatch:
   push:
     branches: [ "master" ]
@@ -16,7 +16,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  validation:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -51,5 +51,10 @@ jobs:
       run : |
        echo "${{ env.NEW_VERSION }}"
        echo "${{ env.OLD_NO_SNAP }}"
-
-   
+  start:
+   runs-on: ubuntu-latest
+   steps:
+    - name: test
+      run : |
+       echo "${{ env.NEW_VERSION }}"
+       echo "${{ env.OLD_NO_SNAP }}"
