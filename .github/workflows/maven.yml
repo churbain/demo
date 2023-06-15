@@ -30,7 +30,7 @@ jobs:
       run: echo "OLD_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
     - name: diplay
       run : echo "${{ env.OLD_VERSION }}"
-    - name: CalculNew version
+    - name: CalculNewversion
       run: |
        import os
        import re
@@ -55,7 +55,7 @@ jobs:
    runs-on: ubuntu-latest
    needs: [validation]
    env:
-    NEW_VERSION: ${{ steps.validation.outputs.OLD_NO_SNAP }}
+    NEW_VERSION: ${{ jobs.validation.steps.CalculNewversion.outputs.OLD_NO_SNAP }}
    steps:
     - name: test
       run : |
