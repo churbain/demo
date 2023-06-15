@@ -58,4 +58,4 @@ jobs:
     - name: test
       run : |
        echo "${{ steps.validation.outputs.NEW_VERSION }}"
-       echo "${{ steps.validation.OLD_NO_SNAP }}"
+       echo "${{ steps.validation.outputs.OLD_NO_SNAP }}"
