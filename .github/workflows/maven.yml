@@ -53,6 +53,7 @@ jobs:
        echo "${{ env.OLD_NO_SNAP }}"
   start:
    runs-on: ubuntu-latest
+   needs: [validation]
    steps:
     - name: test
       run : |
