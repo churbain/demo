@@ -54,6 +54,8 @@ jobs:
   start:
    runs-on: ubuntu-latest
    needs: [validation]
+   env:
+    NEW_VERSION: ${{ steps.validation.outputs.OLD_NO_SNAP }}
    steps:
     - name: test
       run : |
