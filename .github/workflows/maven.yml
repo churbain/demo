@@ -43,7 +43,7 @@ jobs:
         majeur = str (int(vals[0]) +1)
         mineur = 0
        new_vers = majeur + "." + mineur
-       with open(os.environ['GITHUB_ENV'], 'a') as fh:
+       with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
         print(f'NEW_VERSION={new_vers}', file=fh)
         print(f'OLD_NO_SNAP={int(vals[0])}.{int(vals[1])}', file=fh)
       shell: python
@@ -56,5 +56,5 @@ jobs:
    steps:
     - name: test
       run : |
-       echo "${{ env.NEW_VERSION }}"
-       echo "${{ env.OLD_NO_SNAP }}"
+       echo "${{ steps.validation.outputs.NEW_VERSION }}"
+       echo "${{ steps.validation.OLD_NO_SNAP }}"
