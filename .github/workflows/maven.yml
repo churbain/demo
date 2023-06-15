@@ -18,6 +18,9 @@ on:
 jobs:
   validation:
     runs-on: ubuntu-latest
+    outputs:
+      NEW_VERSION: ${{ steps.CalculNewversion.outputs.NEW_VERSION }}
+      OLD_NO_SNAP: ${{ steps.CalculNewversion.outputs.OLD_NO_SNAP }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -54,8 +57,11 @@ jobs:
   start:
    runs-on: ubuntu-latest
    needs: [validation]
+   env:
+      NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
+      OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
    steps:
     - name: test
       run : |
        echo "${{ env.NEW_VERSION }}"
-       echo "${{ jobs.validation.steps.CalculNewversion.outputs.OLD_NO_SNAP }}"
+       echo "${{ env.OLD_NO_SNAP }}"
