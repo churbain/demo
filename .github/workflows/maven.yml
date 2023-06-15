@@ -57,11 +57,12 @@ jobs:
   start:
    runs-on: ubuntu-latest
    needs: [validation]
+  
+   steps:
+   - name: test
    env:
       NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
-      OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
-   steps:
-    - name: test
+      OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}
       run : |
        echo "${{ env.NEW_VERSION }}"
        echo "${{ env.OLD_NO_SNAP }}"
