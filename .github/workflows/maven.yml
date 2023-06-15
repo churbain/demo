@@ -65,4 +65,4 @@ jobs:
        echo "${{ env.OLD_NO_SNAP }}"
      env:
       NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
-      OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}
+      OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
