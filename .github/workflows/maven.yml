@@ -63,9 +63,8 @@ jobs:
        NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
        OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
       run: mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
-    - run : |
-       git add --all
-       git commit testing
-       git push
+    - run: git add --all
+    - run: git commit -m "version update"
+    - run: git push
 
 
