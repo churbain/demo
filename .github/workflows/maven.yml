@@ -61,5 +61,6 @@ jobs:
     - env:
        NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
        OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
-      run: echo "$NEW_VERSION $OLD_NO_SNAP"
+      run: mvn versions:set -DnewVersion=${{NEW_VERSION}}
+
 
