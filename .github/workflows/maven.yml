@@ -61,8 +61,8 @@ jobs:
    steps:
    - name: test
      run : |
-       echo "$NEW_VERSION"
-       echo "$OLD_NO_SNAP"
+      echo "${{ env.NEW_VERSION }}"
+      echo "${{ env.OLD_NO_SNAP }}"
      env:
       NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
       OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
