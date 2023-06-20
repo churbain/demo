@@ -29,7 +29,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - id: get Old
+    - id: getOld
       run: echo "OLD_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
     - id: diplay
       run : echo "${{ env.OLD_VERSION }}"
