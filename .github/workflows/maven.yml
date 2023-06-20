@@ -19,8 +19,8 @@ jobs:
   validation:
     runs-on: ubuntu-latest
     outputs:
-      NEWVERSION: ${{ steps.CalculNewversion.outputs.NEW_VERSION }}
-      OLDNOSNAP: ${{ steps.CalculNewversion.outputs.OLD_NO_SNAP }}
+      NEW_VERSION: ${{ steps.CalculNewversion.outputs.NEW_VERSION }}
+      OLD_NO_SNAP: ${{ steps.CalculNewversion.outputs.OLD_NO_SNAP }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -29,11 +29,11 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: get Old
+    - id: get Old
       run: echo "OLD_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
-    - name: diplay
+    - id: diplay
       run : echo "${{ env.OLD_VERSION }}"
-    - name: CalculNewversion
+    - id: CalculNewversion
       run: |
        import os
        import re
@@ -59,7 +59,7 @@ jobs:
    needs: validation
    steps:
     - env:
-       NEW_VERSION: ${{needs.validation.outputs.NEWVERSION}}
-       OLD_NO_SNAP: ${{needs.validation.outputs.OLDNOSNAP}}
-      run: echo "$NEW_VERSION"
+       NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
+       OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
+      run: echo "$NEW_VERSION $OLD_NO_SNAP"
 
