@@ -43,8 +43,8 @@ jobs:
         majeur = str (int(vals[0]) +1)
         mineur = 0
        new_vers = majeur + "." + mineur
-       print(f'{majeur})'
-       print(f'{mineur})'
+       print(f'{majeur}')
+       print(f'{mineur}')
        with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
         print(f'NEW_VERSION={new_vers}', file=fh)
         print(f'OLD_NO_SNAP={int(vals[0])}.{int(vals[1])}', file=fh)
