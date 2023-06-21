@@ -58,7 +58,9 @@ jobs:
     - env:
        NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
        OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
-      run: mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
+    - run: git config --global user.username '${{GITHUB_ACTOR}}'
+    - run: git config --global user.email '${{github.actor}}@users.noreply.github.com'
+    - run: mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
     - run: git add --all
     - run: git commit -m "version update"
     - run: git push
