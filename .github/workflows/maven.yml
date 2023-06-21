@@ -58,6 +58,8 @@ jobs:
    needs: validation
    steps:
     - uses: actions/checkout@v3
+      with:
+        token : ${{ secrets.GIT_ACTION_TOKEN }}
     - env:
        NEW_VERSION: ${{needs.validation.outputs.NEW_VERSION}}
        OLD_NO_SNAP: ${{needs.validation.outputs.OLD_NO_SNAP}}
