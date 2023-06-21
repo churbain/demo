@@ -61,7 +61,7 @@ jobs:
       run: mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
     - run: git add --all
     - run: git config --global user.name "Catherine"
-    - run: git config --global user.email '${{GITHUB_ACTOR}}@users.noreply.github.com'
+    - run: git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
     - run: git commit -m "version update"
     - run: git push
 
