@@ -66,8 +66,8 @@ jobs:
       run: |
        git config --global user.name '${{github.actor}}'
        git config --global user.email '${{github.actor}}@users.noreply.github.com'
-       git checkout -b release/OLD_NO_SNAP
-       git push
+       git checkout -b release/${{env.OLD_NO_SNAP}}
+       git push --set-upstream origin release/${{env.OLD_NO_SNAP}}
        git checkout master
        mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
        git add pom.xml
