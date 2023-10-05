@@ -69,7 +69,7 @@ jobs:
        git checkout -b release/${{env.OLD_NO_SNAP}}
        git push --set-upstream origin release/${{env.OLD_NO_SNAP}}
        git checkout master
-       mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
+       mvn versions:set -DnewVersion=${{env.NEW_VERSION}}-SNAPSHOT
        git add pom.xml
        git commit -m "version update"
        git push
