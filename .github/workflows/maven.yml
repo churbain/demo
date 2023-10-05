@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Release start
 
 on:
   workflow_dispatch:
@@ -66,8 +66,11 @@ jobs:
       run: |
        git config --global user.name '${{github.actor}}'
        git config --global user.email '${{github.actor}}@users.noreply.github.com'
+       git checkout -b release/OLD_NO_SNAP
+       git push
+       git checkout master
        mvn versions:set -DnewVersion=${{env.NEW_VERSION}}
-       git add --all
+       git add pom.xml
        git commit -m "version update"
        git push
 
