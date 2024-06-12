@@ -8,7 +8,7 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: 'Writerside/docws'
+  INSTANCE: 'Writerside/docsDemo'
   ARTIFACT: 'docws-all.zip'
   DOCKER_VERSION: '241.16003'
 
