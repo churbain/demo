@@ -61,6 +61,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docs
+          path: artifacts/${{ env.ARTIFACT }}
 
       - name: Unzip artifact
         run: ls -al
