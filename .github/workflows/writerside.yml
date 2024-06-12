@@ -63,6 +63,9 @@ jobs:
           name: docs
 
       - name: Unzip artifact
+        run: ls -al
+
+      - name: Unzip artifact
         run: unzip -O UTF-8 -qq '${{ env.ARTIFACT }}' -d dir
 
       - name: Setup Pages
