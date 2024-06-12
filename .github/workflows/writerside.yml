@@ -64,10 +64,10 @@ jobs:
           path: artifacts/${{ env.ARTIFACT }}
 
       - name: Unzip artifact
-        run: ls -al
+        run: ls -al artifacts
 
       - name: Unzip artifact
-        run: unzip -O UTF-8 -qq '${{ env.ARTIFACT }}' -d dir
+        run: unzip -O UTF-8 -qq 'artifacts/${{ env.ARTIFACT }}' -d dir
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
